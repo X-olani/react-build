@@ -1,19 +1,52 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import axios from "axios";
+import { type } from "@testing-library/user-event/dist/type";
+
+const data = [
+  {
+    name: "Jake",
+    time: "2am",
+    room: "#07",
+    statues: "complete",
+    doctor: "Dr T",
+  },
+
+  {
+    name: "Mike",
+    time: "4pm",
+    room: "#06",
+    statues: "complete",
+    doctor: "Dr Q",
+  },
+  { name: "Sky", time: "1am", room: "#01", statues: "active", doctor: "Dr Q" },
+];
 
 const initialState = {
   email: "",
-
+  page: 1,
   password: "",
   total: 2,
-  username: ["Jeff", "Mike", "Steve", "Xolani"],
+  username: "",
+  patientCount: data.length,
+
   age: 0,
+  fakeData: data,
 };
 
 //firebase login
 
-//checking if you logged in or not
+//adding new appointment
+
+export const getNewAppointment = (p, dr, date) => {
+  console.log(p, dr, date);
+  return {
+    type: "NEW_APPOINTMENT",
+    p: p,
+    dr: dr,
+    date: date,
+  };
+};
 
 //
 
@@ -44,6 +77,23 @@ export const Email = (args) => {
   };
 };
 
+export const DeleteAppointment = (i) => {
+  return {
+    type: "DELETE",
+    key: i,
+  };
+};
+
+// button login
+
+export const Login = (e, p) => {
+  let email = e;
+
+  let password = p;
+  console.log(e, p);
+  return { type: "LOGIN", email: email, password: password };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "EMAIL":
@@ -57,6 +107,29 @@ const reducer = (state = initialState, action) => {
       return { ...state, age: cal };
     case "GETTEXT":
       return { ...state, email: action.a };
+
+    case "LOGIN":
+      return {
+        ...state,
+        username: action.email,
+        password: action.password,
+        page: 2,
+      };
+    case "NEW_APPOINTMENT":
+      data.push({
+        name: action.p,
+        time: action.date,
+        room: "#8",
+        statues: "active",
+        doctor: action.dr,
+      });
+
+      return { ...state, fakeData: data, patientCount: data.length };
+
+    case "DELETE":
+      data.splice(action.key, 1);
+
+      return { ...state, fakeData: data, patientCount: data.length };
 
     default:
       return state;
