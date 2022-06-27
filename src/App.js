@@ -1,10 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Login } from "./components/login";
-<<<<<<< HEAD
 import{Patient} from "./components/patients";
-=======
->>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
 export const App = (props) => {
   document.addEventListener("mouseup", function (e) {
     var container = document.getElementById("popUp-container");
@@ -141,12 +138,9 @@ export const App = (props) => {
                     <h2>Patients Name</h2>
                   </div>
                   <div className="app-card-header">
-<<<<<<< HEAD
                     <h2>Doctor </h2>
                   </div>
                   <div className="app-card-header">
-=======
->>>>>>> 
 
 
                     <h2>Time</h2>
@@ -165,7 +159,6 @@ export const App = (props) => {
                     return (
                       <div className="app-card-display">
                         <div className="app-card-header">
-<<<<<<< HEAD
                           <h2>{i.PatientName}</h2>
                         </div>
                         <div className="app-card-header">
@@ -180,30 +173,14 @@ export const App = (props) => {
                         </div>
                         <div className="app-card-header">
                           <h2>{i.status}</h2>
-=======
-                          <h2>{i.name}</h2>
-                        </div>
-                        <div className="app-card-header">
-                          <h2>{i.time}</h2>
-                        </div>
-                        <div className="app-card-header">
-                          <h2>{i.room}</h2>
-                        </div>
-                        <div className="app-card-header">
-                          <h2>{i.statues}</h2>
->>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
                           <div
                             onClick={() => props.actionDeleteAppointment(key)}
                           >
                             DELETE
                           </div>
-<<<<<<< HEAD
                           
                         </div>
                         
-=======
-                        </div>
->>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
                       </div>
                     );
                   })}
@@ -213,7 +190,6 @@ export const App = (props) => {
           </div>
         </div>
       );
-<<<<<<< HEAD
       case 3:{
         return <Patient props={props}></Patient>
       }
@@ -221,7 +197,5 @@ export const App = (props) => {
       
       
       
-=======
->>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
   }
 };
