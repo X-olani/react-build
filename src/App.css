@@ -230,7 +230,6 @@ button {
   align-items: center;
   margin: 20px;
 }
-<<<<<<< HEAD
 /*------------- patient----------*/
 
 .add-patient{
@@ -239,5 +238,49 @@ button {
 .input{
   width: 20%;
 }
-=======
->>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
+
+
+/*------------------- doctor ---------------------*/
+
+.doctor-container{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.doctor-nav{
+  width: 16%;
+  background-color: #8e54c9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+}
+.show-doctor{
+  width: 100%;
+  background-color:#ccc;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.doctor{
+  width: 20%;
+  padding: 10px;
+  border: 1px solid #888;
+  height: 300px;
+  margin: 10px;
+  
+}
+.nav-icons{
+  cursor: pointer;
+}
+.doctor-popUp{
+  position: fixed;
+    background-color: white;
+    width: 38%;
+    padding: 10px;
+    overflow: auto;
+    height: 649px;
+    z-index: 400;
+    display: none;
+}

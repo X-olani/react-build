@@ -7,7 +7,8 @@ import {
   Login,
   getNewAppointment,
   DeleteAppointment,
-  AddPatient
+  AddPatient,
+  getPage
 } from "./store";
 
 const mapStateToProps = (state) => ({
@@ -19,7 +20,8 @@ const mapStateToProps = (state) => ({
   data: state.fakeData,
   page: state.page,
   patientCount: state.patientCount,
-  patientList:state.patientList
+  patientList:state.patientList,
+  doctorList:state.doctorList
 });
 
 const mapDispatchToProps = (Dispatch) => {
@@ -29,7 +31,8 @@ const mapDispatchToProps = (Dispatch) => {
   const getAppointment = (p, d, date) =>
     Dispatch(getNewAppointment(p, d, date));
   const actionDeleteAppointment = (i) => Dispatch(DeleteAppointment(i));
-  const getPatient =(obj)=>Dispatch(AddPatient(obj))
+  const getPatient =(obj ,type)=>Dispatch(AddPatient(obj,type))
+  const actionGetPage=(p)=>Dispatch(getPage(p))
 
   //const pleasework = () => Dispatch(cheese());
 
@@ -43,10 +46,8 @@ const mapDispatchToProps = (Dispatch) => {
     getLogin,
     getAppointment: getAppointment,
     actionDeleteAppointment: actionDeleteAppointment,
-<<<<<<< HEAD
-    getPatient:getPatient
-=======
->>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
+    getPatient:getPatient,
+  actionGetPage:actionGetPage
 
     //pleasework: pleasework,
 

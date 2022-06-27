@@ -3,18 +3,15 @@ import thunk from "redux-thunk";
 import axios from "axios";
 import { type } from "@testing-library/user-event/dist/type";
 
-
-
 const initialState = {
   email: "",
-  page: 3,
+  page: 1,
   password: "",
   total: 2,
   username: "",
   patientCount: 0,
   patientList:[],
-
-
+  doctorList:[],
   age: 0,
   fakeData: [],
 };
@@ -23,9 +20,10 @@ const initialState = {
 
 //adding a new patients
 
-export const AddPatient=(obj)=>{
+export const AddPatient=(obj,type)=>{
 
 return(dispatch,getState)=>{
+  if(type=="Patient"){
 
 axios.post("http://localhost/php_react/addpatients.php",obj).then(res=>{
 
@@ -33,7 +31,16 @@ return dispatch(loadData())
 
 
 })
+  }else if(type=="Doctor"){
+console.log(type)
 
+    axios.post("http://localhost/php_react/doctors.php",obj).then(res=>{
+
+return dispatch(loadData())
+
+
+})
+  }
 
 
 }
@@ -67,6 +74,13 @@ export const loadData=()=>{
     axios.get("http://localhost/php_react/addpatients.php").then(res =>{
       return dispatch({
         type:"LOAD_PATIENTS",
+        data:res.data
+      })
+    })
+
+    axios.get("http://localhost/php_react/doctors.php").then(res =>{
+      return dispatch({
+        type:"LOAD_DOCTORS",
         data:res.data
       })
     })
@@ -133,6 +147,15 @@ export const Email = (args) => {
   };
 };
 
+//page hander
+
+export const getPage =(page)=>{
+
+return {
+  type:"PAGE",
+  page:page
+}
+}
 
 // delete appointment 
 export const DeleteAppointment = (i) => {
@@ -206,6 +229,11 @@ const reducer = (state = initialState, action) => {
     case "DELETE":
 
       return { ...state, patientCount: state.fakeData.length };
+      case "PAGE":
+
+      return {...state, page:action.page}
+
+      
 
 
       case "LOAD_APPOiNTMENTS":
@@ -213,6 +241,8 @@ const reducer = (state = initialState, action) => {
 
       case "LOAD_PATIENTS":
         return{...state, patientList:action.data}
+        case "LOAD_DOCTORS":
+         return {...state, doctorList:action.data}
 
     default:
       return state;

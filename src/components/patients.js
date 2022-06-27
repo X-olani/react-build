@@ -20,7 +20,7 @@ export const Patient = ({ props }) => {
         age:age,
         gender:gender
     }
-    props.getPatient(obj);
+    props.getPatient(obj,"Patient");
   };
   return (
 

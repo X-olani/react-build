@@ -2,11 +2,15 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Login } from "./components/login";
 import{Patient} from "./components/patients";
+import{Doctors} from "./components/doctors";
+
 export const App = (props) => {
   document.addEventListener("mouseup", function (e) {
     var container = document.getElementById("popUp-container");
+   
     if (!container.contains(e.target)) {
       container.style.display = "none";
+   
     }
   });
   const getemail = (e) => props.getEmail(e);
@@ -66,16 +70,16 @@ export const App = (props) => {
           </div>
           <div className="side_bar">
             <div className="card-container">
-              <div className="card-option">
+              <div className="card-option" >
                 <h2>Name</h2>
               </div>
-              <div className="card-option">
+              <div className="card-option" onClick={()=>props.actionGetPage(2)}>
                 <h2>Appointments</h2>
               </div>
-              <div className="card-option">
+              <div className="card-option" onClick={()=>props.actionGetPage(3)}>
                 <h2>Patients</h2>
               </div>
-              <div className="card-option">
+              <div className="card-option" onClick={()=>props.actionGetPage(4)}>
                 <h2>Doctors</h2>
               </div>
             </div>
@@ -192,7 +196,10 @@ export const App = (props) => {
       );
       case 3:{
         return <Patient props={props}></Patient>
-      }
+      };
+
+      case 4:{
+      return <Doctors props={props}></Doctors>}
         
       
       
