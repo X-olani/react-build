@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import axios from "axios";
 import { type } from "@testing-library/user-event/dist/type";
 
+<<<<<<< HEAD
 
 
 const initialState = {
@@ -17,10 +18,42 @@ const initialState = {
 
   age: 0,
   fakeData: [],
+=======
+const data = [
+  {
+    name: "Jake",
+    time: "2am",
+    room: "#07",
+    statues: "complete",
+    doctor: "Dr T",
+  },
+
+  {
+    name: "Mike",
+    time: "4pm",
+    room: "#06",
+    statues: "complete",
+    doctor: "Dr Q",
+  },
+  { name: "Sky", time: "1am", room: "#01", statues: "active", doctor: "Dr Q" },
+];
+
+const initialState = {
+  email: "",
+  page: 1,
+  password: "",
+  total: 2,
+  username: "",
+  patientCount: data.length,
+
+  age: 0,
+  fakeData: data,
+>>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
 };
 
 //firebase login
 
+<<<<<<< HEAD
 //adding a new patients
 
 export const AddPatient=(obj)=>{
@@ -102,6 +135,18 @@ const obj={
 
 }
 
+=======
+//adding new appointment
+
+export const getNewAppointment = (p, dr, date) => {
+  console.log(p, dr, date);
+  return {
+    type: "NEW_APPOINTMENT",
+    p: p,
+    dr: dr,
+    date: date,
+  };
+>>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
 };
 
 //
@@ -133,6 +178,7 @@ export const Email = (args) => {
   };
 };
 
+<<<<<<< HEAD
 
 // delete appointment 
 export const DeleteAppointment = (i) => {
@@ -154,6 +200,9 @@ loadData())
 
 
   }
+=======
+export const DeleteAppointment = (i) => {
+>>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
   return {
     type: "DELETE",
     key: i,
@@ -167,7 +216,10 @@ export const Login = (e, p) => {
 
   let password = p;
   console.log(e, p);
+<<<<<<< HEAD
   
+=======
+>>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
   return { type: "LOGIN", email: email, password: password };
 };
 
@@ -193,12 +245,17 @@ const reducer = (state = initialState, action) => {
         page: 2,
       };
     case "NEW_APPOINTMENT":
+<<<<<<< HEAD
       /*data.push({
+=======
+      data.push({
+>>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
         name: action.p,
         time: action.date,
         room: "#8",
         statues: "active",
         doctor: action.dr,
+<<<<<<< HEAD
       });*/
 
       return { ...state, patientCount: state.fakeData.length, email:action.data };
@@ -213,6 +270,16 @@ const reducer = (state = initialState, action) => {
 
       case "LOAD_PATIENTS":
         return{...state, patientList:action.data}
+=======
+      });
+
+      return { ...state, fakeData: data, patientCount: data.length };
+
+    case "DELETE":
+      data.splice(action.key, 1);
+
+      return { ...state, fakeData: data, patientCount: data.length };
+>>>>>>> 24c8aa7240edc6616a990d557f6a185fdf9cf05e
 
     default:
       return state;
