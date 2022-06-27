@@ -1,0 +1,240 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+input {
+  display: block;
+  border: 2px solid #ccc;
+  width: 95%;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+label {
+  color: #888;
+  font-size: 18px;
+  padding: 10px;
+}
+button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: none;
+  background-color: #8e54c9;
+  color: white;
+  width: 30%;
+}
+
+/*----------- landing page---------*/
+.dash {
+  display: flex;
+
+  padding: 10px;
+  height: 100%;
+}
+.side_bar {
+  width: 200px;
+
+  margin-right: 30px;
+  background-color: #8e54c9;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.card-option {
+  margin: 10px;
+}
+.card-container {
+  flex-grow: 1;
+}
+.btn-logout {
+  margin: 10px;
+}
+
+.user-desc {
+  width: 80%;
+  height: 200px;
+  border: 2px solid gray;
+  border-radius: 20px;
+  padding: 10px;
+}
+.btn-search {
+  margin: 20px;
+}
+
+.list-data {
+  display: flex;
+  justify-content: space-between;
+}
+.list-info {
+  margin: 20px;
+}
+.main_bar {
+  padding: 10px;
+}
+
+.sidebar {
+  border: 2px solid gray;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 10px;
+}
+.user-container {
+  display: flex;
+  align-items: center;
+}
+.user-sidebar {
+  width: 20%;
+}
+.main_bar {
+  width: 100%;
+}
+.user {
+  background-color: gray;
+  width: 30%;
+  height: 30px;
+  margin: 10px;
+}
+.tabs {
+  display: flex;
+}
+.tabs p {
+  margin-right: 30px;
+}
+.app-tabs {
+  display: flex;
+  justify-content: space-between;
+}
+.appointment-list {
+  padding: 10px;
+}
+.app-card {
+  width: 90%;
+  border: 2px solid gray;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.display-appointment {
+  width: 90%;
+
+  padding: 10px;
+}
+.app-card-display {
+  width: 100%;
+  border: 2px solid gray;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.app-card-header-info {
+}
+#popUp {
+  color: #8e54c9;
+}
+#popUp-container {
+  width: 30%;
+  display: none;
+  position: absolute;
+  margin-top: 25%;
+  margin-left: 33%;
+  background-color: #f5f5fc;
+  padding: 10px;
+  border-radius: 10px;
+}
+.popUp-input {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 60%;
+}
+.btn-popUp-container {
+  text-align: center;
+}
+
+/*----------- login page---------*/
+
+.login-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.left-bar {
+  width: 50%;
+  background-color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.right-bar {
+  width: 50%;
+  background-color: rgb(224, 222, 222);
+  height: 100%;
+}
+.btn-login-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px;
+}
+.btn-login {
+  width: 30%;
+  background-color: #8e54c9;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+}
+.login-text-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #8e54c9;
+}
+.login-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+/*------------- patient----------*/
+
+.add-patient{
+  padding: 10px;
+}
+.input{
+  width: 20%;
+}
